@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick="">click me</button> -->
+    
+    <!-- <script>
+        function getValue(x){
+            return x;
+        }
+        function myClick(obj,greeting, anotherGreeting,a){
+            // arguments = [obj,greeting, anotherGreeting,a]
+            var arg = [].slice.call(arguments);
+            console.log(arg)
+            // document.write(greeting);
+            // document.write(myClick.length)
+            document.write(arguments[3])
+            // var num = num
+            // alert('hello')
+            // var propName ='x'
+            // document.writeln(obj[propName])
+            // document.writeln(obj[getValue(propName)])
+            var propName = 'prop'
+            // document.writeln(obj[propName])
+            var obj =  {
+                prop: 'dddf',
+                // propName: 'dfdfdfdfd'
+            }
+
+            // obj.prop // 'dddf'
+            obj.propName
+
+        }
+        for(let x = 1; x <= 10; x++) {
+            myClick({
+                x,
+                y:10
+            }, 'hi', 'hello');
+        }
+        // 1- block of code 
+        // 2- we can call the function as many times as we want
+        // how ?
+        // write the name of function + ()
+        // we can pass arguments when calling function
+        // how ?
+
+
+    </script> -->
+    
+    <input type="text" onchange="showDictionary(this)" >
+    
+    <br>
+    your meaning goes here
+    <div id="meaning"></div>
+
+    <br>
+    <h4>Increase Your vocabulary</h4>
+    Word:<input type="text" id="word"> Meaning: <input type="text" onchange="writeDictonary(this)">
+    <script>
+        const from_store = localStorage.getItem('dict');
+        var dict = JSON.parse(from_store || '{}')
+       console.log()
+        debugger;
+        // dict.any = 'koi';
+        // dict.where = 'kahan'
+        function writeDictonary (event) {
+            const word = document.querySelector('#word');
+            const meaning = event.value;
+            dict[word.value] = meaning;
+            debugger;
+            localStorage.setItem('dict', JSON.stringify(dict));
+        }
+        function showDictionary(input) {
+            var val = input.value;
+            var hasMeaning = dict[val];
+            debugger;
+            let meaningArea = document.querySelector('#meaning');
+            if(hasMeaning) {
+                
+                debugger;
+                meaningArea.innerHTML = hasMeaning
+            } else {
+                meaningArea.innerHTML = "Not Found"
+                console.log(meaningArea);
+                debugger;
+            }
+            debugger;
+        }
+    </script>
+</body>
+</html> 
+
